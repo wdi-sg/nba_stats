@@ -1,4 +1,5 @@
 # SQL Clauses & Aggregation
+![https://media.giphy.com/media/3o6wrCyusA67uiLHYA/giphy.gif](https://media.giphy.com/media/3o6wrCyusA67uiLHYA/giphy.gif)
 
 ### Part 1
 
