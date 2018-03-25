@@ -2,17 +2,86 @@
 
 ### Part 1
 
-Fire up psql and create a database called `nba_db`.
+Create a database called `nba_db`.
+```
+createdb nba_db -U USERNAME
+```
 
-I've created the schema for a table called `players` in the file `players.sql`. The schema includes an id, name, age, team, games, and points.
+I've created the schema for a table called `players` in the file `tables.sql`. The schema includes an id, name, age, team, games, and points.
 
-Run the `players.sql` file for your `nba_db` by typing`psql -d nba_db -f players.sql` into your terminal (not in psql). This will create the players table in your nba_db.
+Run the `tables.sql` file for your `nba_db` by typing`psql -d nba_db -f tables.sql` into your terminal (not in psql). This will create the players table in your nba_db.
 
 ### Part 2
+Load your data from the `players.json` file into your database using a node script: `insert.js`
 
-Run `gem install pg` to install the pg gem. The pg gem allows us to run SQL in a Ruby file.
+Load the pg library:
+```
+yarn init
+yarn add pg
+```
 
-Run the `load_data.rb` Ruby program __ONCE__ (use the command: ```ruby load_data.rb```)to populate the database. It reads in the CSV information from the `data.csv` textfile and populates your database. The data is structured like the following:`name,age,team,games,points`
+Load your json library
+```
+yarn add jsonfile
+```
+
+Require the libraries
+```
+const pg = require('pg');
+const jsonfile = require('jsonfile');
+
+// set all of the configuration in an object
+const configs = {
+  user: 'akira',
+  host: '127.0.0.1',
+  database: 'pokemons',
+  port: 5432,
+};
+
+// create a new instance of the client
+const client = new pg.Client(configs);
+```
+
+Use jsonfile to get the player records
+```
+jsonfile.readFile(i'players.json', (err, obj) => {
+  if (err) console.error(err);
+  // obj is all the player records
+});
+
+```
+Hint: does this need to be nested somewhere? Or not? What is the true order of operations?
+
+
+```
+// start using your client
+
+client.connect((err) => {
+
+  if( err ){
+    console.log( "error", err.message );
+  }
+
+  // your queries go here
+  let text = '';
+
+  // your dynamic values go here
+  let values = [];
+
+  client.query(text, values, (err, res) => {
+    if (err) {
+      console.log("query error", err.message);
+    } else {
+      console.log("result", res.rows[0]);
+    }
+  });
+
+});
+```
+
+Run the `insert.js` program __ONCE__ to populate the database. It should read in the information from the `players.json` textfile and populates your database.
+
+The data is structured with the following keys:`name,age,team,games,points`
 
 ** `games` is games played during the season and `points` is total points scored over the course of the season.
 
