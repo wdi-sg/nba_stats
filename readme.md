@@ -1,4 +1,4 @@
-# SQL Clauses & Aggregation
+# SQL
 ![https://media.giphy.com/media/3o6wrCyusA67uiLHYA/giphy.gif](https://media.giphy.com/media/3o6wrCyusA67uiLHYA/giphy.gif)
 
 ### Part 1
@@ -95,17 +95,11 @@ The data is structured with the following keys:`name,age,team,games,points`
 Figure out the appropriate SQL commands to find out the following, and keep track of them in the file called `sql_commands.txt`
 
 1. All columns for all players from the New York Knicks (NYK)
-2. All columns for all players from the Indiana Packers (IND) who are under 26 years old
-3. All columns for all players, ordered from least points scored to most points scored
-4. Name and Points per game (points/games), for the players with the top 20 points per game
-5. The average age for all players
-6. The average age for all players on the Oklahoma City Thunder (OKC)
-7. The average age for all players who played more than 40 games
-8. The team and total points scored from all players on that team (team points), ordered from most team points to least
+1. All columns for all players from the Indiana Packers (IND) who are under 26 years old
+1. All columns for all players, ordered from least points scored to most points scored
+1. The average age for all players [https://www.w3schools.com/sql/sql_count_avg_sum.asp](https://www.w3schools.com/sql/sql_count_avg_sum.asp)
+1. The average age for all players on the Oklahoma City Thunder (OKC)
 
-### Further
-1. Age and the average points per game for that age, ordered from youngest to oldest
-2. Team and the the number of players who score above 12 points per game on that team, ordered from most to least
 
 ### Further
 Write the node.js code that executes each SQL statement.
