@@ -1,0 +1,11 @@
+{
+  "name": "nba_stats",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/aletheatoh/nba_stats.git",
+  "author": "Alethea Toh <alethea.toh@duke.edu>",
+  "license": "MIT",
+  "dependencies": {
+    "jsonfile": "^4.0.0"
+  }
+}
