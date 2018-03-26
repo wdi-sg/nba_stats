@@ -99,6 +99,9 @@ Figure out the appropriate SQL commands to find out the following, and keep trac
 7. The average age for all players who played more than 40 games
 8. The team and total points scored from all players on that team (team points), ordered from most team points to least
 
-### Bonus
+### Further
 1. Age and the average points per game for that age, ordered from youngest to oldest
 2. Team and the the number of players who score above 12 points per game on that team, ordered from most to least
+
+### Further
+Write the node.js code that executes each SQL statement.
