@@ -1,0 +1,199 @@
+1. All columns for all players from the New York Knicks (NYK)
+======================================================================
+SELECT * FROM players WHERE team='NYK';
+
+id  |       name        | age | team | games | points 
+-----+-------------------+-----+------+-------+--------
+  17 | Carmelo Anthony   |  27 | NYK  |    55 |   1245
+  26 | Renaldo Balkman   |  27 | NYK  |    14 |     42
+  42 | Mike Bibby        |  33 | NYK  |    39 |    103
+  85 | Tyson Chandler    |  29 | NYK  |    62 |    699
+ 105 | Baron Davis       |  32 | NYK  |    29 |    178
+ 119 | Toney Douglas     |  25 | NYK  |    38 |    237
+ 144 | Landry Fields     |  23 | NYK  |    66 |    580
+ 155 | Dan Gadzuric      |  33 | NYK  |     2 |      0
+ 189 | Josh Harrellson   |  22 | NYK  |    37 |    162
+ 237 | Jared Jeffries    |  30 | NYK  |    39 |    170
+ 257 | Jerome Jordan     |  25 | NYK  |    21 |     42
+ 278 | Jeremy Lin        |  23 | NYK  |    35 |    512
+ 331 | Steve Novak       |  28 | NYK  |    54 |    477
+ 385 | Iman Shumpert     |  21 | NYK  |    59 |    563
+ 395 | J.R. Smith        |  26 | NYK  |    35 |    436
+ 407 | Amar'e Stoudemire |  29 | NYK  |    47 |    823
+ 442 | Bill Walker       |  24 | NYK  |    32 |    189
+(17 rows)
+
+2. All columns for all players from the Indiana Packers (IND) who are under 26 years old
+======================================================================
+SELECT * FROM players WHERE team='IND' AND age < 26;
+ id  |       name       | age | team | games | points 
+-----+------------------+-----+------+-------+--------
+  91 | Darren Collison  |  24 | IND  |    60 |    621
+ 143 | Kyrylo Fesenko   |  25 | IND  |     3 |      8
+ 164 | Paul George      |  21 | IND  |    66 |    798
+ 203 | Roy Hibbert      |  25 | IND  |    65 |    834
+ 207 | George Hill      |  25 | IND  |    50 |    481
+ 350 | Jeff Pendergraph |  24 | IND  |    20 |     34
+ 357 | A.J. Price       |  25 | IND  |    44 |    172
+ 403 | Lance Stephenson |  21 | IND  |    42 |    106
+(8 rows)
+
+3. All columns for all players, ordered from least points scored to most points scored
+======================================================================
+SELECT * FROM players ORDER BY points ASC;
+
+4. Name and Points per game (points/games), for the players with the top 20 points per game
+======================================================================
+SELECT name,(points/games) FROM players ORDER BY (points/games) DESC LIMIT 20;
+
+name        	   | points/games
+-------------------+----------
+ Kevin Durant      |       28
+ LeBron James      |       27
+ Kobe Bryant       |       27
+ Kevin Love        |       26
+ Russell Westbrook |       23
+ Dwyane Wade       |       22
+ Carmelo Anthony   |       22
+ LaMarcus Aldridge |       21
+ Monta Ellis       |       21
+ Dirk Nowitzki     |       21
+ Derrick Rose      |       21
+ David Lee         |       20
+ Dwight Howard     |       20
+ Blake Griffin     |       20
+ Deron Williams    |       20
+ Eric Gordon       |       20
+ Andrea Bargnani   |       19
+ Paul Pierce       |       19
+ Al Jefferson      |       19
+ Brook Lopez       |       19
+(20 rows)
+
+
+5. The average age for all players
+======================================================================
+SELECT AVG(age) FROM players;
+         avg         
+---------------------
+ 26.6443514644351464
+(1 row)
+
+6. The average age for all players on the Oklahoma City Thunder (OKC)
+======================================================================
+SELECT AVG(age) FROM players WHERE team = 'OKC';
+         avg         
+---------------------
+ 25.4000000000000000
+(1 row)
+
+7. The average age for all players who played more than 40 games
+======================================================================
+SELECT AVG(age) FROM players WHERE games > 40;
+         avg         
+---------------------
+ 26.4561403508771930
+(1 row)
+
+8. The team and total points scored from all players on that team (team points), ordered from most team points to least
+======================================================================
+SELECT SUM(points),team FROM players GROUP BY team ORDER BY SUM(points) DESC;
+sum  | team 
+------+------
+ 6704 | OKC
+ 6667 | DEN
+ 6561 | SAS
+ 6492 | PHO
+ 6482 | UTA
+ 6464 | MIN
+ 6458 | NYK
+ 6455 | MIA
+ 6369 | ATL
+ 6359 | CHI
+ 6359 | SAC
+ 6322 | DAL
+ 6321 | HOU
+ 6260 | MEM
+ 6253 | IND
+ 6224 | LAC
+ 6200 | GSW
+ 6170 | ORL
+ 6140 | PHI
+ 6097 | CLE
+ 6090 | LAL
+ 6035 | MIL
+ 6009 | BOS
+ 6005 | POR
+ 5997 | DET
+ 5971 | WAS
+ 5887 | TOR
+ 5856 | NJN
+ 5820 | NOH
+ 5739 | CHA
+(30 rows)
+
+9. Age and the average points per game for that age, ordered from youngest to oldest
+======================================================================
+SELECT age,SUM(points)/SUM(games) FROM players GROUP BY age ORDER BY age ASC
+age  | avg points per game 
+-----+----------
+  19 |        8
+  20 |        7
+  21 |        9
+  22 |        8
+  23 |       10
+  24 |        8
+  25 |        8
+  26 |       10
+  27 |       11
+  28 |        9
+  29 |        8
+  30 |        9
+  31 |        7
+  32 |        6
+  33 |        9
+  34 |        9
+  35 |       10
+  36 |        7
+  37 |        5
+  38 |        4
+  39 |        6
+(21 rows)
+
+
+10. Team and the the number of players who score above 12 points per game on that team, ordered from most to least
+======================================================================
+SELECT team, COUNT(*) FROM players WHERE points/games > 12 GROUP BY team ORDER BY COUNT(*) DESC;
+team  | player count 
+------+-------
+ DEN  |     5
+ POR  |     5
+ LAC  |     4
+ GSW  |     3
+ BOS  |     3
+ NOH  |     3
+ HOU  |     3
+ CHI  |     3
+ SAC  |     3
+ MIL  |     3
+ WAS  |     3
+ NJN  |     3
+ LAL  |     3
+ OKC  |     3
+ NYK  |     3
+ MIA  |     3
+ ORL  |     2
+ SAS  |     2
+ TOR  |     2
+ DET  |     2
+ UTA  |     2
+ PHI  |     2
+ CHA  |     2
+ CLE  |     2
+ ATL  |     2
+ DAL  |     2
+ MIN  |     2
+ MEM  |     2
+ PHO  |     1
+ IND  |     1
+(30 rows)
