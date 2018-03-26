@@ -97,6 +97,9 @@ Figure out the appropriate SQL commands to find out the following, and keep trac
 1. All columns for all players from the New York Knicks (NYK)
 1. All columns for all players from the Indiana Packers (IND) who are under 26 years old
 1. All columns for all players, ordered from least points scored to most points scored
+1. All columns for all players on the New York Knicks who scored over 1000 points
+1. All columns for all players on the Chicago Bulls (CHI) who scored under 300 points
+1. Select team column only for players that scored 2 or less points in a game.
 1. The average age for all players [https://www.w3schools.com/sql/sql_count_avg_sum.asp](https://www.w3schools.com/sql/sql_count_avg_sum.asp)
 1. The average age for all players on the Oklahoma City Thunder (OKC)
 
