@@ -13,7 +13,7 @@ I've created the schema for a table called `players` in the file `tables.sql`. T
 Run the `tables.sql` file for your `nba_db` by typing`psql -d nba_db -f tables.sql` into your terminal (not in psql). This will create the players table in your nba_db.
 
 ### Part 2
-Load your data from the `players.json` file into your database using a node script: `insert.js`
+Create a node script (perhaps called `populate-db.js`) to load your data from the `players.json` file into your database.
 
 Load the pg library:
 ```
@@ -21,13 +21,13 @@ yarn init
 yarn add pg
 ```
 
-Load your json library
+Load your jsonfile library
 ```
 yarn add jsonfile
 ```
 
 Require the libraries
-```
+```js
 const pg = require('pg');
 const jsonfile = require('jsonfile');
 
@@ -44,43 +44,47 @@ const client = new pg.Client(configs);
 ```
 
 Use jsonfile to get the player records
-```
-jsonfile.readFile(i'players.json', (err, obj) => {
+```js
+jsonfile.readFile('players.json', (err, obj) => {
   if (err) console.error(err);
   // obj is all the player records
+  // what now?
 });
 
 ```
+
 Hint: does this need to be nested somewhere? Or not? What is the true order of operations?
 
 
-```
+```js
 // start using your client
 
 client.connect((err) => {
 
-  if( err ){
-    console.log( "error", err.message );
+  if (err) {
+    console.log('error', err.message);
   }
 
   // your queries go here
-  let text = '';
+  let queryString = '';
 
   // your dynamic values go here
   let values = [];
 
-  client.query(text, values, (err, res) => {
+  client.query(queryString, values, (err, res) => {
     if (err) {
-      console.log("query error", err.message);
+      console.log('query error', err.message);
     } else {
-      console.log("result", res.rows[0]);
+      console.log('result', res.rows[0]);
     }
+    
+    // the last query you make, close the connection.
+    client.end();
   });
-
 });
 ```
 
-Run the `insert.js` program __ONCE__ to populate the database. It should read in the information from the `players.json` textfile and populates your database.
+Run the `populate-db.js` program __ONCE__ to populate the database. It should read in the information from the `players.json` textfile and populates your database.
 
 The data is structured with the following keys:`name,age,team,games,points`
 
@@ -99,6 +103,9 @@ Figure out the appropriate SQL commands to find out the following, and keep trac
 7. The average age for all players who played more than 40 games
 8. The team and total points scored from all players on that team (team points), ordered from most team points to least
 
-### Bonus
+### Further
 1. Age and the average points per game for that age, ordered from youngest to oldest
 2. Team and the the number of players who score above 12 points per game on that team, ordered from most to least
+
+### Further
+Write the node.js code that executes each SQL statement.
