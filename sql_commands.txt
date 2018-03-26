@@ -1,0 +1,23 @@
+//Qn 1
+SELECT * FROM players WHERE team = 'NYK';
+
+//Qn 2
+SELECT * FROM players WHERE team = 'IND' AND age < 26;
+
+//Qn 3
+SELECT * FROM players ORDER BY points ASC;
+
+//Qn 4
+SELECT * FROM players WHERE team = 'NYK' AND points > 1000;
+
+//Qn 5
+SELECT * FROM players WHERE team = 'CHI' AND points < 300;
+
+//Qn 6
+SELECT team FROM players WHERE points <= 2;
+
+//Qn 7
+SELECT AVG(age) FROM players;
+
+//Qn 8
+SELECT AVG(age) FROM players WHERE team = 'OKC';
