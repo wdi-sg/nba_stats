@@ -1,0 +1,11 @@
+{
+  "name": "nba_stats",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/tiffam/nba_stats.git",
+  "license": "MIT",
+  "dependencies": {
+    "jsonfile": "^4.0.0",
+    "pg": "^7.4.1"
+  }
+}
