@@ -1,0 +1,13 @@
+1. SELECT * FROM players WHERE team = 'NYK';
+2. SELECT * FROM players WHERE team = 'IND' AND age < 26;
+3. SELECT * FROM players ORDER BY points, name;
+4. SELECT name, ROUND(points * 1.00 / games, 2) FROM players ORDER BY 2 DESC LIMIT 20;
+5. SELECT ROUND(AVG(age), 2) FROM players;
+6. SELECT ROUND(AVG(age), 2) FROM players WHERE team = 'OKC';
+7. SELECT ROUND(AVG(age), 2) FROM players WHERE games > 40;
+8. SELECT team, SUM(points) FROM players GROUP BY 1 ORDER BY 2 DESC;
+
+FURTHER
+
+1. SELECT age, ROUND(SUM(points) * 1.00 / SUM(games), 2) FROM players GROUP BY 1 ORDER BY 1;
+2. SELECT team, COUNT(1) FROM players WHERE ROUND(points * 1.00 / games, 2) > 12 GROUP BY 1 ORDER BY 2 DESC;
