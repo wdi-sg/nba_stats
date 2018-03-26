@@ -32,21 +32,17 @@ async function savePlayerInDB(player) {
 }
 
 async function populateDB() {
-    let fileData = await readJSON(FILE);
-    if (fileData) {
-        await dbClient.connect();
-        let players = fileData.players;
-        let l = players.length;
-        let dbTasks = [];
-        while (l--) {
-            dbTasks.push(savePlayerInDB(players[l]));
-        };
-        Promise.all(dbTasks).then(async (val) => {
-            await dbClient.end();
-        })
-    } else {
-        throw new Error('No file read!');
-    }
+    let fileData = readJSON(FILE);
+    await fileData + await dbClient.connect();
+    let players = fileData.players;
+    let l = players.length;
+    let dbTasks = [];
+    while (l--) {
+        dbTasks.push(savePlayerInDB(players[l]));
+    };
+    Promise.all(dbTasks).then((val) => {
+        dbClient.end(); // No async/await declaration here since it's not like the server has anything else to do... 
+    })  
 }
 
 populateDB();
