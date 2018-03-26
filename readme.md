@@ -77,6 +77,9 @@ client.connect((err) => {
     } else {
       console.log('result', res.rows[0]);
     }
+    
+    // the last query you make, close the connection.
+    client.end();
   });
 });
 ```
