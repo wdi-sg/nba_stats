@@ -36,7 +36,9 @@ and age < 26;
 
 9. Age and the average points per game for that age, ordered from youngest to oldest
 
-// select avg(points), age from players group by age order by age;
+// select age, avg(points/games) from players group by age order by age desc;
 
 10. Team and the the number of players who score above 12 points per game on that team, ordered from most to least
+
+// select team, count(team) as "Number of players" from players where points/games > 12 group by team order by count(team) desc;
 
