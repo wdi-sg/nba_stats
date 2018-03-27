@@ -1,0 +1,15 @@
+1 => nba_db=# select * from players where team = 'NYK'; (17 rows)
+
+2 => nba_db=# select * from players where team = 'IND' and age < 26; (8 rows)
+
+3 => nba_db=# select * from players order by points asc;
+
+4 => nba_db=# select * from players order by points/games desc limit 20;
+
+5 => nba_db=# select avg (age) from players; (26.64)
+
+6 => nba_db=# select avg (age) from players where team = 'OKC'; (25.40)
+
+7 => nba_db=# select avg (age) from players where games > 40; (26.45)
+
+8 => nba_db=# select team, SUM(points) FROM players GROUP BY 1 ORDER BY 2 DESC;
