@@ -16,9 +16,9 @@ jsonfile.readFile('players.json', (err, obj) => {
   if (err) console.error(err);
   // obj is all the player records
   // what now?
-  var object = players[i];
-  for (var i = 0; i < players.length; 1++) {
-  	console.log(object.players);
+  var obj= players[i];
+  for (var i = 0; i < obj.players.length; 1++) {
+  	var player = obj.players[i];
   }
 });
 
@@ -31,10 +31,10 @@ client.connect((err) => {
   }
 
   // your queries go here
-  let queryString = 'select * from players';
+  let queryString = "INSERT INTO players (name, age, team, games, points) VALUES ($1, $2, $3, $4, $5)";
 
   // your dynamic values go here
-  let values = [];
+  let values = [player.name, player.age, player.team, player.games, player.points];
 
   client.query(queryString, values, (err, res) => {
     if (err) {
@@ -44,6 +44,6 @@ client.connect((err) => {
     }
     
     // the last query you make, close the connection.
-    client.end();
+    // client.end();
   });
 });
