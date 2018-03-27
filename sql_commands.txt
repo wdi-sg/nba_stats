@@ -1,0 +1,23 @@
+Q1
+SELECT name, age, team, games, points FROM players WHERE team = 'NYK';
+
+Q2
+SELECT name, age, team, games, points FROM players WHERE team = 'IND'AND age < 26;
+
+Q3
+SELECT name, age, team, games, points FROM players ORDER BY points;
+
+Q4
+SELECT name, points/games FROM players ORDER BY points/games DESC LIMIT 20;
+
+Q5
+SELECT SUM(age)/count(*) FROM players;
+
+Q6
+SELECT SUM(age)/count(*) FROM players WHERE team = 'OKC';
+
+Q7
+SELECT SUM(age)/count(*) FROM players WHERE games >40;
+
+Q8
+SELECT team, sum(points) FROM players GROUP BY team ORDER BY sum(points) DESC;
