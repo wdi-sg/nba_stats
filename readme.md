@@ -33,10 +33,10 @@ const jsonfile = require('jsonfile');
 
 // set all of the configuration in an object
 const configs = {
-  user: 'akira',
-  host: '127.0.0.1',
-  database: 'pokemons',
-  port: 5432,
+user: 'akira',
+      host: '127.0.0.1',
+      database: 'pokemons',
+      port: 5432,
 };
 
 // create a new instance of the client
@@ -46,10 +46,10 @@ const client = new pg.Client(configs);
 Use jsonfile to get the player records
 ```js
 jsonfile.readFile('players.json', (err, obj) => {
-  if (err) console.error(err);
-  // obj is all the player records
-  // what now?
-});
+    if (err) console.error(err);
+    // obj is all the player records
+    // what now?
+    });
 
 ```
 
@@ -61,26 +61,26 @@ Hint: does this need to be nested somewhere? Or not? What is the true order of o
 
 client.connect((err) => {
 
-  if (err) {
-    console.log('error', err.message);
-  }
-
-  // your queries go here
-  let queryString = '';
-
-  // your dynamic values go here
-  let values = [];
-
-  client.query(queryString, values, (err, res) => {
     if (err) {
-      console.log('query error', err.message);
-    } else {
-      console.log('result', res.rows[0]);
+    console.log('error', err.message);
     }
-    
-    // the last query you make, close the connection.
-    client.end();
-  });
+
+    // your queries go here
+    let queryString = '';
+
+    // your dynamic values go here
+    let values = [];
+
+    client.query(queryString, values, (err, res) => {
+        if (err) {
+        console.log('query error', err.message);
+        } else {
+        console.log('result', res.rows[0]);
+        }
+
+        // the last query you make, close the connection.
+        client.end();
+        });
 });
 ```
 
@@ -95,17 +95,17 @@ The data is structured with the following keys:`name,age,team,games,points`
 Figure out the appropriate SQL commands to find out the following, and keep track of them in the file called `sql_commands.txt`
 
 1. All columns for all players from the New York Knicks (NYK)
-2. All columns for all players from the Indiana Packers (IND) who are under 26 years old
-3. All columns for all players, ordered from least points scored to most points scored
-4. Name and Points per game (points/games), for the players with the top 20 points per game
-5. The average age for all players
+  2. All columns for all players from the Indiana Packers (IND) who are under 26 years old
+  3. All columns for all players, ordered from least points scored to most points scored
+  4. Name and Points per game (points/games), for the players with the top 20 points per game
+  5. The average age for all players
 6. The average age for all players on the Oklahoma City Thunder (OKC)
-7. The average age for all players who played more than 40 games
-8. The team and total points scored from all players on that team (team points), ordered from most team points to least
+  7. The average age for all players who played more than 40 games
+  8. The team and total points scored from all players on that team (team points), ordered from most team points to least
 
 ### Further
-1. Age and the average points per game for that age, ordered from youngest to oldest
-2. Team and the the number of players who score above 12 points per game on that team, ordered from most to least
+  1. Age and the average points per game for that age, ordered from youngest to oldest
+  2. Team and the the number of players who score above 12 points per game on that team, ordered from most to least
 
 ### Further
-Write the node.js code that executes each SQL statement.
+  Write the node.js code that executes each SQL statement.
