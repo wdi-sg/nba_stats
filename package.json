@@ -1,0 +1,12 @@
+{
+  "name": "nba_stats",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/enkai87/nba_stats.git",
+  "author": "enkai87 <tanenkai@firebelly.com.sg>",
+  "license": "MIT",
+  "dependencies": {
+    "jsonfile": "^4.0.0",
+    "pg": "^7.4.1"
+  }
+}
