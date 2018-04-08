@@ -101,8 +101,10 @@ Figure out the appropriate SQL commands to find out the following, and keep trac
 1. All columns for all players on the Chicago Bulls (CHI) who scored under 300 points
 1. Select team column only for players that scored 2 or less points in a game.
 1. The average age for all players [https://www.w3schools.com/sql/sql_count_avg_sum.asp](https://www.w3schools.com/sql/sql_count_avg_sum.asp)
-1. The average age for all players on the Oklahoma City Thunder (OKC)
 
 
 ### Further
-Write the node.js code that executes each SQL statement.
+Write the node.js `client.query` code that **executes** each SQL statement from part 3 and `consooe.log`s the results.
+
+### Further
+Write the node.js code that runs an array of string sql statements and `console.log`s the results.
