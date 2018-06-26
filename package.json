@@ -1,0 +1,23 @@
+{
+  "name": "nba_stats",
+  "version": "1.0.0",
+  "description": "![https://media.giphy.com/media/3o6wrCyusA67uiLHYA/giphy.gif](https://media.giphy.com/media/3o6wrCyusA67uiLHYA/giphy.gif)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mirage1129/nba_stats.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mirage1129/nba_stats/issues"
+  },
+  "homepage": "https://github.com/mirage1129/nba_stats#readme",
+  "dependencies": {
+    "jsonfile": "^4.0.0",
+    "pg": "^7.4.3"
+  }
+}
