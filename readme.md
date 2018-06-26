@@ -49,9 +49,41 @@ jsonfile.readFile('players.json', (err, obj) => {
   if (err) console.error(err);
   // obj is all the player records
   // what now?
+
+
+
+
+  client.connect((err) => {
+
+  if (err) {
+    console.log('error', err.message);
+  }
+
+  // your queries go here
+  let queryString = 'INSERT INTO players (age, name, ) VALUES ($1, $2...)';
+
+
+
+      // ALL the stuff that happens for each object in the array
+
+      // your dynamic values go here
+      let values = [];
+
+      client.query(queryString, values, (err, res) => {
+        if (err) {
+          console.log('query error', err.message);
+        } else {
+          console.log('result', res.rows[0]);
+        }
+        
+        // the last query you make, close the connection.
+        client.end();
+      });
+});
 });
 
-```
+``` 
+Put the entire client.connect into the readFile
 
 Hint: does this need to be nested somewhere? Or not? What is the true order of operations?
 
