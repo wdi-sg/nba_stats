@@ -1,0 +1,196 @@
+1. All columns for all players from the New York Knicks (NYK)
+
+nba_db=# SELECT * FROM players WHERE team = 'NYK';
+
+ id  |       name        | age | team | games | points
+-----+-------------------+-----+------+-------+--------
+  17 | Carmelo Anthony   |  27 | NYK  |    55 |   1245
+  26 | Renaldo Balkman   |  27 | NYK  |    14 |     42
+  42 | Mike Bibby        |  33 | NYK  |    39 |    103
+  85 | Tyson Chandler    |  29 | NYK  |    62 |    699
+ 105 | Baron Davis       |  32 | NYK  |    29 |    178
+ 119 | Toney Douglas     |  25 | NYK  |    38 |    237
+ 144 | Landry Fields     |  23 | NYK  |    66 |    580
+ 155 | Dan Gadzuric      |  33 | NYK  |     2 |      0
+ 189 | Josh Harrellson   |  22 | NYK  |    37 |    162
+ 237 | Jared Jeffries    |  30 | NYK  |    39 |    170
+ 257 | Jerome Jordan     |  25 | NYK  |    21 |     42
+ 278 | Jeremy Lin        |  23 | NYK  |    35 |    512
+ 331 | Steve Novak       |  28 | NYK  |    54 |    477
+ 385 | Iman Shumpert     |  21 | NYK  |    59 |    563
+ 395 | J.R. Smith        |  26 | NYK  |    35 |    436
+ 407 | Amar'e Stoudemire |  29 | NYK  |    47 |    823
+ 442 | Bill Walker       |  24 | NYK  |    32 |    189
+(17 rows)
+
+2. All columns for all players from the Indiana Packers (IND) who are under 26 years old
+
+nba_db=# SELECT * FROM players where team = 'IND' AND age < 26;
+ id  |       name       | age | team | games | points
+-----+------------------+-----+------+-------+--------
+  91 | Darren Collison  |  24 | IND  |    60 |    621
+ 143 | Kyrylo Fesenko   |  25 | IND  |     3 |      8
+ 164 | Paul George      |  21 | IND  |    66 |    798
+ 203 | Roy Hibbert      |  25 | IND  |    65 |    834
+ 207 | George Hill      |  25 | IND  |    50 |    481
+ 350 | Jeff Pendergraph |  24 | IND  |    20 |     34
+ 357 | A.J. Price       |  25 | IND  |    44 |    172
+ 403 | Lance Stephenson |  21 | IND  |    42 |    106
+(8 rows)
+
+3. All columns for all players, ordered from least points scored to most points scored
+
+SELECT * FROM players ORDER BY points;
+
+4. Name and Points per game (points/games), for the players with the top 20 points per game
+
+nba_db=# SELECT name, (points/games) AS points_per_game FROM players ORDER BY points_per_game DESC LIMIT 20;
+       name        | points_per_game
+-------------------+-----------------
+ Kevin Durant      |              28
+ LeBron James      |              27
+ Kobe Bryant       |              27
+ Kevin Love        |              26
+ Russell Westbrook |              23
+ Dwyane Wade       |              22
+ Carmelo Anthony   |              22
+ LaMarcus Aldridge |              21
+ Monta Ellis       |              21
+ Dirk Nowitzki     |              21
+ Derrick Rose      |              21
+ David Lee         |              20
+ Dwight Howard     |              20
+ Blake Griffin     |              20
+ Deron Williams    |              20
+ Eric Gordon       |              20
+ Andrea Bargnani   |              19
+ Paul Pierce       |              19
+ Al Jefferson      |              19
+ Brook Lopez       |              19
+(20 rows)
+
+5. The average age for all players
+
+nba_db=# SELECT AVG(age) AS avg_age FROM players;
+       avg_age
+---------------------
+ 26.6443514644351464
+(1 row)
+
+6. The average age for all players on the Oklahoma City Thunder (OKC)
+
+nba_db=# SELECT AVG(age) AS avg_age FROM players WHERE team = 'OKC';
+       avg_age
+---------------------
+ 25.4000000000000000
+(1 row)
+
+8. The average age for all players who played more than 40 games
+
+nba_db=# SELECT AVG(age) AS avg_age FROM players WHERE games > 40;
+       avg_age
+---------------------
+ 26.4561403508771930
+(1 row)
+
+9. The team and total points scored from all players on that team (team points), ordered from most team points to least
+
+nba_db=# SELECT team, SUM(points) AS total_points FROM players GROUP BY team ORDER BY total_points DESC;
+ team | total_points
+------+--------------
+ OKC  |         6704
+ DEN  |         6667
+ SAS  |         6561
+ PHO  |         6492
+ UTA  |         6482
+ MIN  |         6464
+ NYK  |         6458
+ MIA  |         6455
+ ATL  |         6369
+ CHI  |         6359
+ SAC  |         6359
+ DAL  |         6322
+ HOU  |         6321
+ MEM  |         6260
+ IND  |         6253
+ LAC  |         6224
+ GSW  |         6200
+ ORL  |         6170
+ PHI  |         6140
+ CLE  |         6097
+ LAL  |         6090
+ MIL  |         6035
+ BOS  |         6009
+ POR  |         6005
+ DET  |         5997
+ WAS  |         5971
+ TOR  |         5887
+ NJN  |         5856
+ NOH  |         5820
+ CHA  |         5739
+(30 rows)
+
+10. Age and the average points per game for that age, ordered from youngest to oldest
+
+nba_db=# SELECT age, SUM(points)/age AS avg_points_per_game FROM players GROUP BY age ORDER BY age DESC;
+ age | avg_points_per_game
+-----+---------------------
+  39 |                  16
+  38 |                   8
+  37 |                  37
+  36 |                  31
+  35 |                 140
+  34 |                  88
+  33 |                 161
+  32 |                 162
+  31 |                 417
+  30 |                 278
+  29 |                 346
+  28 |                 358
+  27 |                 564
+  26 |                 886
+  25 |                 663
+  24 |                 697
+  23 |                 910
+  22 |                 659
+  21 |                 503
+  20 |                 199
+  19 |                  93
+(21 rows)
+
+11. Team and the the number of players who score above 12 points per game on that team, ordered from most to least
+
+nba_db=# SELECT team, COUNT(*) AS num_players FROM players WHERE points/games > 12 GROUP BY team ORDER BY num_players DESC;
+ team | num_players
+------+-------------
+ DEN  |           5
+ POR  |           5
+ LAC  |           4
+ GSW  |           3
+ BOS  |           3
+ NOH  |           3
+ HOU  |           3
+ CHI  |           3
+ SAC  |           3
+ MIL  |           3
+ WAS  |           3
+ NJN  |           3
+ LAL  |           3
+ OKC  |           3
+ NYK  |           3
+ MIA  |           3
+ ORL  |           2
+ SAS  |           2
+ TOR  |           2
+ DET  |           2
+ UTA  |           2
+ PHI  |           2
+ CHA  |           2
+ CLE  |           2
+ ATL  |           2
+ DAL  |           2
+ MIN  |           2
+ MEM  |           2
+ PHO  |           1
+ IND  |           1
+(30 rows)
