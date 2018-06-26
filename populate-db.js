@@ -112,7 +112,42 @@ function SQLQueries () {
     })
 }
 
-SQLQueries();
+
+
+
+
+
+function SQLQueriesFurther () {
+    const client2 = new pg.Client(configs);
+
+    client2.connect((err) => {
+        if (err) {
+            console.log('error', err.message);
+        }
+    
+        // your queries go here
+        //first section of part 3
+        let queryString = ["SELECT * FROM players WHERE team = 'NYK'", "SELECT * FROM players WHERE team = 'IND' AND age < 26", "SELECT * FROM players ORDER BY points ASC"];
+        
+        for(let a=0; a<queryString.length; a++) {
+            client2.query(queryString[a], (err, res) => {
+                if (err) {
+                    console.log('query error', err.message);
+                } else {
+                    for(let i=0; i<res.rows.length; i++) {
+                        console.log('result', res.rows[i]);
+    
+                        if(i == res.rows.length - 1 && a == queryString.length - 1) {
+                            client2.end();
+                        }
+                    }
+                }     
+            });
+        }
+    })
+}
+
+SQLQueriesFurther();
 
 
 
