@@ -22,6 +22,7 @@ client.connect((err) =>{
     thirdQuery : 'SELECT * FROM players ORDER BY points ASC;'
   }
   //https://caolan.github.io/async/docs.html#eachOf
+  // works like forEach?? see link above for async info
   async.forEachOf(queryObj, (value, key, callback) => {
     client.query(value, (err, result) => {
       if (err) {

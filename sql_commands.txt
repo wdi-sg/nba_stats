@@ -15,5 +15,3 @@ Further
 3.) SELECT team FROM players WHERE points <= 2;
 
 4.) SELECT AVG(age) FROM players;
-
-Further
