@@ -1,0 +1,20 @@
+SELECT * FROM players WHERE team = 'New York Knicks'
+
+SELECT * FROM players WHERE team = 'Indiana Packers' AND age < 26
+
+SELECT * FROM players ORDER BY points ASC
+
+
+Further:
+
+1.
+SELECT * FROM players WHERE team = 'New York Knicks' AND points > 1000
+
+2.
+SELECT * FROM players WHERE team = 'Chicago Bulls' AND points < 300
+
+3.
+SELECT team FROM players WHERE points <= 2
+
+4.
+SELECT AVG(age) FROM players 
