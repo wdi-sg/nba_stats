@@ -1,0 +1,12 @@
+{
+  "name": "nba_stats",
+  "version": "1.0.0",
+  "main": "populate-db",
+  "repository": "https://github.com/zw-zack/nba_stats.git",
+  "author": "zw-zack <zhengwin94@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jsonfile": "^4.0.0",
+    "pg": "^7.4.1"
+  }
+}
