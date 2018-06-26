@@ -46,7 +46,7 @@ const client = new pg.Client(configs);
 // COMMENTED OUT AFTER LOADING THE DATABASE
 // =============================================================
 
-start using your client
+// start using your client
 
 client.connect((err) => {
 
@@ -58,11 +58,11 @@ client.connect((err) => {
         if (err) {
             console.log('query error', err.message);
         } else {
-        	var obj = [];
-        	res.rows.forEach((player) => {
-        		obj.push(player.name);
-        	})
-        	fs.writeFile("sql_commands.txt", 'Players who are in NYK team: ' + obj, (err)=>{console.log('err')});
+            var obj = [];
+            res.rows.forEach((player) => {
+                obj.push(player.name);
+            })
+            fs.writeFile("sql_commands.txt", 'Players who are in NYK team: ' + obj, (err) => { console.log('err') });
             client.end();
         }
     })
@@ -78,11 +78,11 @@ client.connect((err) => {
         if (err) {
             console.log('query error', err.message);
         } else {
-        	var obj = [];
-        	res.rows.forEach((player) => {
-        		obj.push(player.name);
-        	})
-        	fs.writeFile("sql_commands.txt", 'Players whom are from IND team and below 26 years old:  ' + obj, (err)=>{console.log('err')});
+            var obj = [];
+            res.rows.forEach((player) => {
+                obj.push(player.name);
+            })
+            fs.writeFile("sql_commands.txt", 'Players whom are from IND team and below 26 years old:  ' + obj, (err) => { console.log('err') });
             client.end();
         }
     })
@@ -93,18 +93,45 @@ client.connect((err) => {
     if (err) {
         console.log('error', err.message);
     }
-    let queryString = "SELECT points FROM players ORDER BY points ASC";
+    let queryString = "SELECT * FROM players ORDER BY points ASC";
     client.query(queryString, (err, res) => {
         if (err) {
             console.log('query error', err.message);
         } else {
-        	var obj = [];
-        	res.rows.forEach((num) => {
-        		obj.push(res.rows.name);
-        		console.log(res.rows);
-        	})
-        	fs.writeFile("sql_commands.txt", 'Players rating points by ascending order: ' + obj, (err)=>{console.log('err')});
+            var obj = [];
+            res.rows.forEach((player) => {
+                obj.push(player.name);
+            })
+            fs.writeFile("sql_commands.txt", 'Players rating points by ascending order: ' + obj, (err) => { console.log('err') });
             client.end();
         }
     })
 })
+
+client.connect((err) => {
+
+            if (err) {
+                console.log('error', err.message);
+            }
+            const arraysOfDecision = [
+                "SELECT * FROM players WHERE team = 'NYK' AND points > 1000",
+                "SELECT * FROM players WHERE team = 'CHI' AND points < 300",
+                "SELECT * FROM players WHERE points <= 2 ",
+                "SELECT AVG(age) FROM players"
+            ]
+
+            for (let i = 0; i < arraysOfDecision.length; i++) {
+                client.query(queryString, (err, res) => {
+                    if (err) {
+                        console.log('query error', err.message);
+                    } else {
+                        var obj = [];
+                        res.rows.forEach((player) => {
+                            obj.push(player.name);
+                        })
+                        fs.writeFile("sql_commands.txt", 'Players rating points by ascending order: ' + obj, (err) => { console.log('err') });
+                        client.end();
+                    }
+                })
+            }
+        }
