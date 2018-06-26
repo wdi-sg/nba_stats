@@ -1,0 +1,44 @@
+{
+  "commands": [
+    {
+      "question": 1,
+      "command": "SELECT * FROM players WHERE team = 'NYK';"
+    },
+    {
+      "question": 2,
+      "command": "SELECT * FROM players WHERE team = 'IND' AND age < 26;"
+    },
+    {
+      "question": 3,
+      "command": "SELECT * FROM players ORDER BY points, name;"
+    },
+    {
+      "question": 4,
+      "command": "SELECT name, ROUND(points * 1.00 / games, 2) FROM players ORDER BY 2 DESC LIMIT 20;"
+    },
+    {
+      "question": 5,
+      "command": "SELECT ROUND(AVG(age), 2) FROM players;"
+    },
+    {
+      "question": 6,
+      "command": "SELECT ROUND(AVG(age), 2) FROM players WHERE team = 'OKC';"
+    },
+    {
+      "question": 7,
+      "command": "SELECT ROUND(AVG(age), 2) FROM players WHERE games > 40;"
+    },
+    {
+      "question": 8,
+      "command": "SELECT team, SUM(points) FROM players GROUP BY 1 ORDER BY 2 DESC;"
+    },
+    {
+      "question": 9,
+      "command": "SELECT age, ROUND(SUM(points) * 1.00 / SUM(games), 2) FROM players GROUP BY 1 ORDER BY 1;"
+    },
+    {
+      "question": 10,
+      "command": "SELECT team, COUNT(1) FROM players WHERE ROUND(points * 1.00 / games, 2) > 12 GROUP BY 1 ORDER BY 2 DESC;"
+    }
+  ]
+}
