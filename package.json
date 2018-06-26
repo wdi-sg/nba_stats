@@ -1,0 +1,12 @@
+{
+  "name": "nba_stats",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:jchuajy/nba_stats.git",
+  "author": "jchuajy <j.chua.jy@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jsonfile": "^4.0.0",
+    "pg": "^7.4.1"
+  }
+}
