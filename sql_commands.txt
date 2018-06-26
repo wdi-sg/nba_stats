@@ -23,7 +23,7 @@ SELECT * FROM players WHERE team = 'CHI' AND points < 300;
 
 3.
 
-SELECT team FROM players WHERE points < 2;
+SELECT team FROM players WHERE points <= 2;
 
 4.
 

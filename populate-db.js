@@ -58,3 +58,37 @@ jsonfile.readFile(FILE, (err, obj) => {
 	});
 
 });
+
+
+// // For further
+
+// jsonfile.readFile(FILE, (err, obj) => {
+
+// 	client.connect((err) => {
+//     if (err) {
+//         console.log('connect error', err.message);
+//         return;
+//     }
+//     let queryStrings = [
+//         "SELECT * FROM players WHERE team = 'NYK'",
+//         "SELECT * FROM players WHERE team = 'IND' AND age < 26",
+//         "SELECT * FROM players ORDER BY points ASC",
+//         "SELECT * FROM players WHERE team = 'NYK' AND points > 1000",
+//         "SELECT * FROM players WHERE team = 'CHI' AND points < 300",
+//         "SELECT team FROM players WHERE points <= 2",
+//         "SELECT AVG(age) FROM players"
+//     ];
+
+//     queryStrings.forEach( query => {
+//         client.query(query, (err, res) => {
+//             if (err) {
+//                 console.log('query error', err.message);
+//             } else {
+//                 console.log(res);
+//             }
+//         });
+//     })
+// });
+
+
+// });	
