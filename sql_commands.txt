@@ -1,0 +1,20 @@
+Q1
+SELECT * FROM players WHERE team = 'NYK';
+
+Q2
+SELECT * FROM players WHERE team = 'IND'AND age < 26;
+
+Q3
+SELECT * FROM players ORDER BY points;
+
+Q1
+SELECT * FROM players WHERE points > 1000;
+
+Q2
+SELECT * FROM players WHERE points < 300 AND team = 'CHI';
+
+Q3
+SELECT team FROM players WHERE points < 3;
+
+Q4
+SELECT AVG(age) FROM players;
