@@ -2,7 +2,7 @@ const pg = require('pg');
 const jsonfile = require ('jsonfile');
 
 const configs = {
-user: 'julian',
+user: 'postgres',
 host: '127.0.0.1',
 database: 'nba_db',
 port: 5432,
