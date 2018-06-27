@@ -31,7 +31,7 @@ jsonfile.readFile('players.json', (err, obj) => {
         for (let i = 0; i < obj.players.length; i++) {
             let queryString = 'INSERT INTO players (name, age, team, games, points) VALUES ($1, $2, $3, $4 ,$5)';
             let allVals = [obj.players[i].name, obj.players[i].age, obj.players[i].team, obj.players[i].games, obj.players[i].points];
-            console.log(allVals[i])
+            console.log(allVals[i]);
 
                 
         
@@ -48,5 +48,5 @@ jsonfile.readFile('players.json', (err, obj) => {
             }
             })
         }
-    }
+    });
 })
