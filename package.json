@@ -1,0 +1,23 @@
+{
+  "name": "nba_stats",
+  "version": "1.0.0",
+  "description": "![https://media.giphy.com/media/3o6wrCyusA67uiLHYA/giphy.gif](https://media.giphy.com/media/3o6wrCyusA67uiLHYA/giphy.gif)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damienteo/nba_stats.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damienteo/nba_stats/issues"
+  },
+  "homepage": "https://github.com/damienteo/nba_stats#readme",
+  "dependencies": {
+    "pg": "^7.7.1"
+  },
+  "devDependencies": {}
+}
