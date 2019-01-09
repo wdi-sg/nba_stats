@@ -45,6 +45,7 @@ client.connect((err) => {
 
 	switch (command) {
 
+
 		case 'SHOWALL':
 		    text = "SELECT * FROM players";
 		    console.log('All tasks as follows:');
@@ -91,6 +92,29 @@ client.connect((err) => {
 		    text = `SELECT AVG(${task}) FROM players;`;
 		    console.log('All tasks as follows:');
 		    break;
+
+		case 'ARRAY':
+		// Write the node.js code that runs an array of string sql statements and console.logs the results.
+			const all_queries = [
+				`SELECT * FROM players WHERE team = '${task}'`,
+			 	"SELECT * FROM players"
+			];
+
+			for(let i=0; i<all_queries.length; i++) {
+				client.query(all_queries[i],(err, res) => {
+					console.log(`<------------------------------------${all_queries[i]}`);
+					if( err ){
+			     	console.log( "error", err.message );
+			    	} else {
+						// console.log("result: ", res.rows); 
+						for(let i=0; i<res.rows.length; i++) {
+							console.log(res.rows[i]);
+						}
+					};
+				})
+			}
+
+			break;
 
 		default:
 			text = "SELECT * FROM players";
