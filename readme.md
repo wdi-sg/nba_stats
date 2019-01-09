@@ -13,7 +13,7 @@ I've created the schema for a table called `players` in the file `tables.sql`. T
 Run the `tables.sql` file for your `nba_db` by typing`psql -d nba_db -f tables.sql` into your terminal (not in psql). This will create the players table in your nba_db.
 
 ### Part 2: Fill the DB from a File
-psql -d nba_db -U akira -f seed.sql
+`psql -d nba_db -U akira -f seed.sql`
 
 ### Part 3: Query your Filled DB
 
