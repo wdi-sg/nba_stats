@@ -312,7 +312,7 @@ INSERT INTO players (name, age, team, games, points) VALUES ('Paul Millsap',26,'
 INSERT INTO players (name, age, team, games, points) VALUES ('Nazr Mohammed',34,'OKC',63,171);
 INSERT INTO players (name, age, team, games, points) VALUES ('Greg Monroe',21,'DET',66,1015);
 INSERT INTO players (name, age, team, games, points) VALUES ('Jamario Moon',31,'CHA',8,18);
-INSERT INTO players (name, age, team, games, points) VALUES ('E'Twaun Moore',22,'BOS',38,110);
+INSERT INTO players (name, age, team, games, points) VALUES ('E''Twaun Moore',22,'BOS',38,110);
 INSERT INTO players (name, age, team, games, points) VALUES ('Mikki Moore',36,'GSW',7,24);
 INSERT INTO players (name, age, team, games, points) VALUES ('Darius Morris',21,'LAL',19,46);
 INSERT INTO players (name, age, team, games, points) VALUES ('Marcus Morris',22,'HOU',17,40);
@@ -321,7 +321,7 @@ INSERT INTO players (name, age, team, games, points) VALUES ('Anthony Morrow',26
 INSERT INTO players (name, age, team, games, points) VALUES ('Timofey Mozgov',25,'DEN',44,239);
 INSERT INTO players (name, age, team, games, points) VALUES ('Byron Mullens',22,'CHA',65,606);
 INSERT INTO players (name, age, team, games, points) VALUES ('Troy Murphy',31,'LAL',59,188);
-INSERT INTO players (name, age, team, games, points) VALUES ('Hamady N'Diaye',25,'WAS',3,0);
+INSERT INTO players (name, age, team, games, points) VALUES ('Hamady N''Diaye',25,'WAS',3,0);
 INSERT INTO players (name, age, team, games, points) VALUES ('Eduardo Najera',35,'CHA',22,58);
 INSERT INTO players (name, age, team, games, points) VALUES ('Steve Nash',37,'PHO',62,772);
 INSERT INTO players (name, age, team, games, points) VALUES ('Gary Neal',27,'SAS',56,557);
@@ -330,7 +330,7 @@ INSERT INTO players (name, age, team, games, points) VALUES ('Joakim Noah',26,'C
 INSERT INTO players (name, age, team, games, points) VALUES ('Andres Nocioni',32,'PHI',11,17);
 INSERT INTO players (name, age, team, games, points) VALUES ('Steve Novak',28,'NYK',54,477);
 INSERT INTO players (name, age, team, games, points) VALUES ('Dirk Nowitzki',33,'DAL',62,1342);
-INSERT INTO players (name, age, team, games, points) VALUES ('Jermaine O'Neal',33,'BOS',25,125);
+INSERT INTO players (name, age, team, games, points) VALUES ('Jermaine O''Neal',33,'BOS',25,125);
 INSERT INTO players (name, age, team, games, points) VALUES ('Lamar Odom',32,'DAL',50,332);
 INSERT INTO players (name, age, team, games, points) VALUES ('Emeka Okafor',29,'NOH',27,266);
 INSERT INTO players (name, age, team, games, points) VALUES ('Mehmet Okur',32,'NJN',17,130);
@@ -404,7 +404,7 @@ INSERT INTO players (name, age, team, games, points) VALUES ('Lance Stephenson',
 INSERT INTO players (name, age, team, games, points) VALUES ('DeShawn Stevenson',30,'NJN',51,148);
 INSERT INTO players (name, age, team, games, points) VALUES ('Greg Stiemsma',26,'BOS',55,161);
 INSERT INTO players (name, age, team, games, points) VALUES ('Julyan Stone',23,'DEN',22,36);
-INSERT INTO players (name, age, team, games, points) VALUES ('Amar'e Stoudemire',29,'NYK',47,823);
+INSERT INTO players (name, age, team, games, points) VALUES ('Amar''e Stoudemire',29,'NYK',47,823);
 INSERT INTO players (name, age, team, games, points) VALUES ('Rodney Stuckey',25,'DET',55,812);
 INSERT INTO players (name, age, team, games, points) VALUES ('DaJuan Summers',24,'NOH',15,68);
 INSERT INTO players (name, age, team, games, points) VALUES ('Jeff Teague',23,'ATL',66,831);
