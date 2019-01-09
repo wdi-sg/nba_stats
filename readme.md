@@ -20,7 +20,7 @@ Run the `tables.sql` file for your `nba_db` by typing`psql -d nba_db -f tables.s
 Figure out the appropriate SQL commands to find out the following, and keep track of them in the file called `sql_commands.txt`
 
 1. All columns for all players from the New York Knicks (NYK)
-1. All columns for all players from the Indiana Packers (IND) who are under 26 years old
+1. All columns for all players from the Indiana Pacers (IND) who are under 26 years old
 1. All columns for all players, ordered from least points scored to most points scored
 
 ### Further - do these in any order:
