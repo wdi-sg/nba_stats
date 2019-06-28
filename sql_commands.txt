@@ -1,0 +1,17 @@
+Basic Deliverables
+
+1.) SELECT * FROM players WHERE team = 'NYK';
+
+2.) SELECT * FROM players WHERE team = 'IND' AND AGE <= 26;
+
+3.) SELECT * FROM players ORDER BY points ASC;
+
+Further
+
+1.) SELECT * FROM players WHERE points >= 1000;
+
+2.) SELECT * FROM players WHERE points <= 300 AND team = 'CHI';
+
+3.) SELECT team FROM players WHERE points <= 2;
+
+4.) SELECT AVG(age) FROM players;
