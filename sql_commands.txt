@@ -1,0 +1,17 @@
+1. SELECT * FROM players WHERE team = 'NYK';
+2. SELECT * FROM players WHERE team = 'IND' AND age < 26;
+3.SELECT * FROM players ORDER BY points ;
+
+Further 1:
+
+1. All columns for all players on the New York Knicks who scored over 1000 points
+SELECT * FROM players WHERE team = 'NYK' AND points > 1000;
+
+2. All columns for all players on the Chicago Bulls (CHI) who scored under 300 points
+SELECT * FROM players WHERE team = 'CHI' AND points < 300;
+
+3. Select team column only for players that scored 2 or less points in a game.
+SELECT team FROM players WHERE points/games <= 2;
+
+4.The average age for all players
+SELECT AVG(age) FROM players;
