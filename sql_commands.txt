@@ -1,0 +1,52 @@
+PART 1
+SELECT * FROM players WHERE team = 'NYK';
+ id  |       name        | age | team | games | points 
+-----+-------------------+-----+------+-------+--------
+  17 | Carmelo Anthony   |  27 | NYK  |    55 |   1245
+  26 | Renaldo Balkman   |  27 | NYK  |    14 |     42
+  42 | Mike Bibby        |  33 | NYK  |    39 |    103
+  85 | Tyson Chandler    |  29 | NYK  |    62 |    699
+ 105 | Baron Davis       |  32 | NYK  |    29 |    178
+ 119 | Toney Douglas     |  25 | NYK  |    38 |    237
+ 144 | Landry Fields     |  23 | NYK  |    66 |    580
+ 155 | Dan Gadzuric      |  33 | NYK  |     2 |      0
+ 189 | Josh Harrellson   |  22 | NYK  |    37 |    162
+ 237 | Jared Jeffries    |  30 | NYK  |    39 |    170
+ 257 | Jerome Jordan     |  25 | NYK  |    21 |     42
+ 278 | Jeremy Lin        |  23 | NYK  |    35 |    512
+ 331 | Steve Novak       |  28 | NYK  |    54 |    477
+ 385 | Iman Shumpert     |  21 | NYK  |    59 |    563
+ 395 | J.R. Smith        |  26 | NYK  |    35 |    436
+ 407 | Amar'e Stoudemire |  29 | NYK  |    47 |    823
+ 442 | Bill Walker       |  24 | NYK  |    32 |    189
+(17 rows)
+
+
+
+
+PART 2
+SELECT * FROM players WHERE team = 'IND' AND age < 26;
+ id  |       name       | age | team | games | points 
+-----+------------------+-----+------+-------+--------
+  91 | Darren Collison  |  24 | IND  |    60 |    621
+ 143 | Kyrylo Fesenko   |  25 | IND  |     3 |      8
+ 164 | Paul George      |  21 | IND  |    66 |    798
+ 203 | Roy Hibbert      |  25 | IND  |    65 |    834
+ 207 | George Hill      |  25 | IND  |    50 |    481
+ 350 | Jeff Pendergraph |  24 | IND  |    20 |     34
+ 357 | A.J. Price       |  25 | IND  |    44 |    172
+ 403 | Lance Stephenson |  21 | IND  |    42 |    106
+(8 rows)
+
+
+
+
+PART 3
+SELECT * FROM players ORDER BY points ASC;
+
+
+FURTHER
+1) SELECT * FROM players WHERE team = 'NYK' AND points > 1000;
+2) SELECT * FROM players WHERE team = 'CHI' AND points < 300;
+3) SELECT team FROM players WHERE points/games <= 2;
+4) SELECT AVG(age) FROM players; --> avg = 26.6443514644351464
